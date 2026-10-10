@@ -85,7 +85,7 @@ Ejecutar en modo **headless** (sin abrir la ventana del navegador, útil para CI
 pytest tests/test_saucedemo.py -v --headless --html=reports/reporte.html --self-contained-html
 ```
 
-El reporte se genera en `reports/reporte.html`. Si algún test falla, se guarda automáticamente una captura de pantalla en `reports/screenshots/`.
+El reporte se genera en `reports/reporte.html`. Si algún test falla, se guarda automáticamente una captura de pantalla en `reports/screenshots/`. El log de la última ejecución queda en `reports/logs/execution_log.txt`.
 
 ## Casos de prueba
 

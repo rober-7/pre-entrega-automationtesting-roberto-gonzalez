@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Rober\Desktop\Curso Testig\venv\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.10', 'Platform': 'Windows-11-10.0.26300-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'html': '4.2.0', 'metadata': '3.1.1'}}
+rootdir: C:\Users\Rober\Desktop\Curso Testig\pre-entrega-automationtesting-robert-gonzalez
+configfile: pytest.ini
+plugins: html-4.2.0, metadata-3.1.1
+collecting ... collected 8 items
+
+tests/test_saucedemo.py::TestLogin::test_login_exitoso_redirige_a_pagina_de_inventario PASSED [ 12%]
+tests/test_saucedemo.py::TestLogin::test_login_con_credenciales_invalidas_muestra_mensaje_de_error PASSED [ 25%]
+tests/test_saucedemo.py::TestCatalog::test_titulo_de_pagina_de_inventario_es_correcto PASSED [ 37%]
+tests/test_saucedemo.py::TestCatalog::test_existen_productos_visibles_en_el_catalogo PASSED [ 50%]
+tests/test_saucedemo.py::TestCatalog::test_elementos_importantes_de_la_interfaz_estan_presentes PASSED [ 62%]
+tests/test_saucedemo.py::TestCatalog::test_lista_nombre_y_precio_del_primer_producto PASSED [ 75%]
+tests/test_saucedemo.py::TestCart::test_agregar_producto_incrementa_contador_del_carrito PASSED [ 87%]
+tests/test_saucedemo.py::TestCart::test_producto_agregado_aparece_correctamente_en_el_carrito PASSED [100%]
+
+- Generated html report: file:///C:/Users/Rober/Desktop/Curso%20Testig/pre-entrega-automationtesting-robert-gonzalez/reports/reporte.html -
+============================= 8 passed in 31.17s ==============================
