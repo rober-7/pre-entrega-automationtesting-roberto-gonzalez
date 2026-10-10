@@ -9,7 +9,13 @@ Cada test hace su propio login cuando lo necesita para que los tests
 sean independientes entre si (la falla de uno no afecta a los demas).
 """
 
-from datos.test_data import EXPECTED_BROWSER_TAB_TITLE, EXPECTED_INVENTORY_TITLE, VALID_USER
+from datos.test_data import (
+    EXPECTED_BROWSER_TAB_TITLE,
+    EXPECTED_INVENTORY_TITLE,
+    EXPECTED_LOGIN_ERROR_MESSAGE,
+    INVALID_USER,
+    VALID_USER,
+)
 from utils.pages import CartPage, InventoryPage, LoginPage
 
 
@@ -32,6 +38,13 @@ class TestLogin:
         assert "/inventory.html" in driver.current_url
         assert driver.title == EXPECTED_BROWSER_TAB_TITLE
         assert inventory_page.get_page_title() == EXPECTED_INVENTORY_TITLE
+
+    def test_login_con_credenciales_invalidas_muestra_mensaje_de_error(self, driver):
+        login_page = LoginPage(driver).load()
+        login_page.login(INVALID_USER["username"], INVALID_USER["password"])
+
+        assert login_page.get_error_message() == EXPECTED_LOGIN_ERROR_MESSAGE
+        assert "/inventory.html" not in driver.current_url
 
 
 class TestCatalog:

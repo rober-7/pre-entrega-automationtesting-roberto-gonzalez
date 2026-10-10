@@ -12,5 +12,11 @@ LOCKED_OUT_USER = {
     "password": "secret_sauce",
 }
 
+INVALID_USER = {
+    "username": "usuario_inexistente",
+    "password": "password_incorrecta",
+}
+
 EXPECTED_INVENTORY_TITLE = "Products"
 EXPECTED_BROWSER_TAB_TITLE = "Swag Labs"
+EXPECTED_LOGIN_ERROR_MESSAGE = "Epic sadface: Username and password do not match any user in this service"
