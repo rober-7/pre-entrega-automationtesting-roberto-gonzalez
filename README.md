@@ -79,6 +79,12 @@ pytest tests/test_saucedemo.py::TestCatalog -v
 pytest tests/test_saucedemo.py::TestCart -v
 ```
 
+Ejecutar en modo **headless** (sin abrir la ventana del navegador, útil para CI):
+
+```bash
+pytest tests/test_saucedemo.py -v --headless --html=reports/reporte.html --self-contained-html
+```
+
 El reporte se genera en `reports/reporte.html`. Si algún test falla, se guarda automáticamente una captura de pantalla en `reports/screenshots/`.
 
 ## Casos de prueba
@@ -86,6 +92,7 @@ El reporte se genera en `reports/reporte.html`. Si algún test falla, se guarda 
 | Clase | Test | Qué valida |
 |---|---|---|
 | `TestLogin` | `test_login_exitoso_redirige_a_pagina_de_inventario` | Login con `standard_user` redirige a `/inventory.html` y el título es "Products" |
+| `TestLogin` | `test_login_con_credenciales_invalidas_muestra_mensaje_de_error` | Login con credenciales incorrectas muestra el mensaje de error y no redirige al inventario |
 | `TestCatalog` | `test_titulo_de_pagina_de_inventario_es_correcto` | El título de la página de inventario es correcto |
 | `TestCatalog` | `test_existen_productos_visibles_en_el_catalogo` | Hay al menos un producto visible |
 | `TestCatalog` | `test_elementos_importantes_de_la_interfaz_estan_presentes` | El menú y el filtro de orden están presentes |
