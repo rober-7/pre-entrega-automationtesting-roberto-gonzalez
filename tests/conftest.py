@@ -3,6 +3,10 @@
 - `driver`: crea y cierra el navegador Chrome para cada test (tests independientes).
 - `pytest_runtest_makereport`: si un test falla, guarda automaticamente
   una captura de pantalla en reports/screenshots/.
+
+Uso:
+    pytest tests/                 # con ventana de Chrome visible
+    pytest tests/ --headless      # sin interfaz grafica (mas rapido, ideal para CI)
 """
 
 import os
@@ -19,11 +23,24 @@ REPORTS_DIR = os.path.join(PROJECT_ROOT, "reports")
 SCREENSHOTS_DIR = os.path.join(REPORTS_DIR, "screenshots")
 
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--headless",
+        action="store_true",
+        default=False,
+        help="Ejecuta el navegador Chrome sin interfaz grafica (modo headless).",
+    )
+
+
 @pytest.fixture
-def driver():
+def driver(request):
     """Inicializa el WebDriver de Chrome para un test y lo cierra al finalizar."""
     options = Options()
     options.add_argument("--start-maximized")
+
+    if request.config.getoption("--headless"):
+        options.add_argument("--headless=new")
+        options.add_argument("--window-size=1920,1080")
 
     service = Service(ChromeDriverManager().install())
     navegador = webdriver.Chrome(service=service, options=options)
