@@ -17,4 +17,4 @@ tests/test_saucedemo.py::TestCart::test_agregar_producto_incrementa_contador_del
 tests/test_saucedemo.py::TestCart::test_producto_agregado_aparece_correctamente_en_el_carrito PASSED [100%]
 
 - Generated html report: file:///C:/Users/Rober/Desktop/Curso%20Testig/pre-entrega-automationtesting-robert-gonzalez/reports/reporte.html -
-============================= 8 passed in 31.17s ==============================
+============================= 8 passed in 32.78s ==============================
